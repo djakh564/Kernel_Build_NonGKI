@@ -1,19 +1,13 @@
 ---
 # NonGKI Kernel Build - 小米10Pro cmi MIUI12.0.3 Android10 umi-q-oss
-name: Build Non-GKI Kernel with KSU & SuSFS
+name: Build Non‑GKI Kernel with KSU & SuSFS
 on:
   workflow_dispatch:
     inputs:
       CONFIG_FILE:
-        description: '配置文件 (选择预设配置，留空则手动填写)'
+        description: '配置文件 (填写预设配置文件名，留空则手动填写下面参数)'
         required: false
-        type: choice
-        options:
-          - oneplus8.json
-          - reno10_docker.json
-          - xiaomi11_ultra.json
-          - pixel6.json
-          - ''
+        type: string
         default: ''
       # ========== 手动配置参数 (当 CONFIG_FILE 为空时) ==========
       KERNEL_SOURCE:
@@ -25,28 +19,28 @@ on:
         description: 'Kernel source branch'
         required: false
         type: string
-        default: 'umi-q-oss'
+        default: 'umi‑q‑oss'
       KERNEL_CONFIG:
         description: 'Defconfig filename'
         required: false
         type: string
-        default: 'vendor/cmi-perf_defconfig'
+        default: 'vendor/cmi‑perf_defconfig'
       CLANG_SOURCE:
         description: 'Clang compiler download URL'
         required: false
         type: string
-        default: 'https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/tags/android-10.0.0_r45/clang-r353983c.tar.gz'
+        default: 'https://android.googlesource.com/platform/prebuilts/clang/host/linux‑x86/+archive/refs/tags/android‑10.0.0_r45/clang‑r353983c.tar.gz'
       KERNEL_IMAGE_NAME:
-        description: 'Output kernel image name (Image, Image.gz-dtb, etc.)'
+        description: 'Output kernel image name (Image, Image.gz‑dtb, etc.)'
         required: false
         type: string
-        default: 'Image.gz-dtb'
+        default: 'Image.gz‑dtb'
       # ========== 设备信息 ==========
       DEVICE_NAME:
         description: 'Device name'
         required: false
         type: string
-        default: 'Xiaomi-Mi10Pro'
+        default: 'Xiaomi‑Mi10Pro'
       DEVICE_CODENAME:
         description: 'Device codename'
         required: false
@@ -158,6 +152,7 @@ on:
         required: false
         type: boolean
         default: true
+
 
 jobs:
   build:
