@@ -20,52 +20,52 @@ on:
         default: ''
       
       # ========== 手动配置参数 (当 CONFIG_FILE 为空时必填) ==========
-      KERNEL_SOURCE:
+      KERNEL_SOURCE: 'https://github.com/djakh564/Kernel_Build_NonGKI.git'
         description: 'Kernel source repository URL (仅在 CONFIG_FILE 为空时填写)'
         required: false
         type: string
-      KERNEL_BRANCH:
+      KERNEL_BRANCH: 'umi‑q‑oss'
         description: 'Kernel source branch (仅在 CONFIG_FILE 为空时填写)'
         required: false
         type: string
-      KERNEL_CONFIG:
+      KERNEL_CONFIG: 'vendor/cmi‑perf_defconfig'
         description: 'Defconfig filename (仅在 CONFIG_FILE 为空时填写)'
         required: false
         type: string
-      CLANG_SOURCE:
+      CLANG_SOURCE: 'https://android.googlesource.com/platform/prebuilts/clang/host/linux‑x86/+archive/refs/tags/android‑10.0.0_r45/clang‑r353983c.tar.gz'
         description: 'Clang compiler download URL (仅在 CONFIG_FILE 为空时填写)'
         required: false
         type: string
-      KERNEL_IMAGE_NAME:
+      KERNEL_IMAGE_NAME: 'Image.gz‑dtb'
         description: 'Output kernel image name (Image, Image.gz-dtb, etc.)'
         required: false
         type: string
         default: 'Image'
 
       # ========== 设备信息 ==========
-      DEVICE_NAME:
+      DEVICE_NAME: 'Xiaomi‑Mi10Pro'
         description: 'Device name (e.g., oneplus_8)'
         required: false
         type: string
         default: 'unknown'
-      DEVICE_CODENAME:
+      DEVICE_CODENAME: 'cmi'
         description: 'Device codename (e.g., instantnoodle)'
         required: false
         type: string
         default: 'unknown'
 
       # ========== KernelSU 配置 ==========
-      ENABLE_KERNELSU:
+      ENABLE_KERNELSU: true
         description: 'Inject KernelSU into kernel'
         required: false
         type: boolean
         default: true
-      KERNELSU_BRANCH:
+      KERNELSU_BRANCH: 'main'
         description: 'KernelSU version branch (e.g., main, v0.9.5)'
         required: false
         type: string
         default: 'main'
-      KERNELSU_AUTO_FORK:
+      KERNELSU_AUTO_FORK: 'resukisu'
         description: 'KernelSU fork variant'
         required: false
         type: choice
@@ -100,7 +100,7 @@ on:
         required: false
         type: boolean
         default: false
-      HOOK_METHOD:
+      HOOK_METHOD: 'trace'
         description: 'KernelSU hook method'
         required: false
         type: choice
@@ -121,7 +121,7 @@ on:
         default: false
 
       # ========== 打包配置 ==========
-      PACK_METHOD:
+      PACK_METHOD: 'Anykernel3'
         description: 'Output packaging method'
         required: false
         type: choice
@@ -139,7 +139,7 @@ on:
         required: false
         type: string
         default: 'master'
-      PACK_KMODULES:
+      PACK_KMODULES: true
         description: 'Pack kernel modules (.ko) into output'
         required: false
         type: boolean
